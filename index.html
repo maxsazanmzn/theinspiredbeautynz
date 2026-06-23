@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Inspired Beauty - Premium Beauty Therapy Studio in Christchurch, NZ. Professional facials, waxing, brows, lashes, and beauty training.">
+    <meta name="keywords" content="beauty therapy, facials, waxing, brows, lashes, Christchurch, New Zealand">
+    <meta name="author" content="The Inspired Beauty - Rabina">
+    <title>The Inspired Beauty | Premium Beauty Therapy Studio - Christchurch, NZ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4a574;
+            --primary-dark: #b8956a;
+            --secondary: #2c3e50;
+            --accent: #e8d5c4;
+            --danger: #e74c3c;
+            --success: #27ae60;
+            --background: #fafbfc;
+            --surface: #ffffff;
+            --border: #e8e8e8;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-book {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-book:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f0eb 100%);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            padding: 14px 32px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            background: var(--accent);
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+
+        .credentials h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .credentials ul {
+            list-style: none;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .credentials li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .credentials li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--accent) 0%, #e8d5c4 100%);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(212, 165, 116, 0.3);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .pricing-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .currency {
+            font-size: 20px;
+            vertical-align: super;
+        }
+
+        .pricing-card .duration {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, var(--accent) 0%, #e8d5c4 100%);
+            border-radius: 12px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: rgba(212, 165, 116, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .contact-item {
+            margin-bottom: 32px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--surface);
+            color: var(--text);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--surface);
+            border: none;
+            width: 100%;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--accent);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Trust Signals */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .badge {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .badge-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .badge-text {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 60px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .trust-badges {
+                gap: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section a {
+                display: inline;
+                margin-right: 16px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Booking Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: var(--shadow-xl);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            color: var(--text);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--text);
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">✨ The Inspired Beauty</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn-book" onclick="openBookingModal()">Book Now</button>
+            <button class="menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Natural Beauty</h1>
+            <p class="hero-subtitle">Professional beauty therapy with 10+ years of expertise. Premium treatments using only professional-grade products.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="openBookingModal()">Book Your Treatment</button>
+                <a href="#services" class="btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <p class="section-subtitle">Tailored treatments designed to enhance your natural beauty and boost your confidence</p>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">✨</div>
+                    <h3>Professional Facials</h3>
+                    <p>Deep cleansing, hydrating, and rejuvenating facials customized for your skin type. Experience the ultimate glow.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🪮</div>
+                    <h3>Waxing & Hair Removal</h3>
+                    <p>Smooth, long-lasting results with professional waxing for face and body. Gentle yet effective treatments.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">👁️</div>
+                    <h3>Brows & Lashes</h3>
+                    <p>Shape, tint, and enhance your brows and lashes. Expert techniques for perfectly defined features.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">💆</div>
+                    <h3>Dermaplaning</h3>
+                    <p>Remove fine facial hair and dead skin cells for a smoother, brighter complexion. Instant radiance.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">💄</div>
+                    <h3>Makeup Services</h3>
+                    <p>Professional makeup application for events, special occasions, or everyday looks. Flawless finish guaranteed.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🎓</div>
+                    <h3>Beauty Training</h3>
+                    <p>Learn professional beauty techniques from a certified therapist. Personalized training programs available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Meet Rabina</h2>
+                    <p>With over 10 years of professional experience in the beauty industry, I'm passionate about helping clients feel confident and beautiful in their own skin.</p>
+                    <p>I'm a fully qualified NZ beauty therapist, trained to the highest standards and committed to delivering exceptional results using only professional-grade products.</p>
+                    <p>Every treatment is personalized to your unique needs, ensuring you receive the best possible care and attention.</p>
+                    <div class="credentials">
+                        <h4>🏆 Qualifications & Certifications</h4>
+                        <ul>
+                            <li>NZ Qualified Beauty Therapist</li>
+                            <li>HITO Certified Professional</li>
+                            <li>Professional Grade Product Specialist</li>
+                            <li>10+ Years Industry Experience</li>
+                            <li>NZ Association of Registered Business Professionals</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">💅</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Real feedback from satisfied clients who've experienced our premium treatments</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Rabina is absolutely amazing! Her facials have transformed my skin. I've never felt more confident. Highly recommend!"</p>
+                    <p class="testimonial-author">Sarah Mitchell</p>
+                    <p class="testimonial-role">Regular Client</p>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Professional, friendly, and incredibly skilled. My eyebrows have never looked better. Worth every penny!"</p>
+                    <p class="testimonial-author">Emma Thompson</p>
+                    <p class="testimonial-role">Brow & Lash Client</p>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The beauty training was invaluable. Rabina is patient, knowledgeable, and truly cares about her clients' success."</p>
+                    <p class="testimonial-author">Jessica Wong</p>
+                    <p class="testimonial-role">Beauty Training Student</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">Transparent Pricing</h2>
+            <p class="section-subtitle">Premium treatments at competitive prices. All prices include professional-grade products.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in-up">
+                    <h3>Facial Treatments</h3>
+                    <div class="price"><span class="currency">$</span>65</div>
+                    <div class="duration">per 60 minutes</div>
+                    <ul class="pricing-features">
+                        <li>Skin Analysis</li>
+                        <li>Deep Cleanse</li>
+                        <li>Customized Treatment</li>
+                        <li>Moisturizing Mask</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card featured fade-in-up">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3>Waxing Services</h3>
+                    <div class="price"><span class="currency">$</span>35</div>
+                    <div class="duration">varies by area</div>
+                    <ul class="pricing-features">
+                        <li>Professional Wax</li>
+                        <li>Gentle Technique</li>
+                        <li>Soothing Aftercare</li>
+                        <li>Long-lasting Results</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
+                </div>
+                <div class="pricing-card fade-in-up">
+                    <h3>Brows & Lashes</h3>
+                    <div class="price"><span class="currency">$</span>45</div>
+                    <div class="duration">per service</div>
+                    <ul class="pricing-features">
+                        <li>Expert Shaping</li>
+                        <li>Professional Tint</li>
+                        <li>Precision Work</li>
+                        <li>Perfect Definition</li>
+                    </ul>
+                    <button class="btn-primary" onclick="openBookingModal()">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Our Studio</h2>
+            <p class="section-subtitle">A welcoming, professional space designed for your comfort and relaxation</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">🏢</div>
+                <div class="gallery-item">🛋️</div>
+                <div class="gallery-item">💆</div>
+                <div class="gallery-item">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about our services</p>
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        How should I prepare for my facial?
+                        <span class="faq-toggle">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Come with clean skin and avoid heavy makeup. Arrive 5-10 minutes early to relax. Avoid sun exposure and strenuous exercise 24 hours before your appointment for best results.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        How long do waxing results last?
+                        <span class="faq-toggle">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Waxing results typically last 3-6 weeks depending on your hair growth cycle. For best results, maintain regular appointments every 4-6 weeks.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Is the waxing process painful?
+                        <span class="faq-toggle">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>While waxing involves some discomfort, our professional technique minimizes pain. Most clients find it tolerable, and discomfort decreases with regular treatments as hair becomes finer.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        What's your cancellation policy?
+                        <span class="faq-toggle">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We require 24 hours notice for cancellations. Cancellations made within 24 hours may incur a 50% cancellation fee. No-shows will be charged in full.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        Do you offer gift vouchers?
+                        <span class="faq-toggle">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Gift vouchers are available for any amount. They make perfect gifts for friends and family. Contact us for details on purchasing gift vouchers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Ready to book your treatment or have questions? We'd love to hear from you.</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Bishopdale, Christchurch<br>New Zealand</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+64211234567">+64 (0) 21 123 4567</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:hello@theinspiredbeauty.co.nz">hello@theinspiredbeauty.co.nz</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-details">
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h4>Follow Us</h4>
+                            <p>
+                                <a href="https://www.instagram.com/theinspired_beauty/" target="_blank">Instagram</a> • 
+                                <a href="https://www.tiktok.com/@theinspired_beauty" target="_blank">TikTok</a> • 
+                                <a href="https://www.facebook.com/61558791268136/" target="_blank">Facebook</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="sendMessage(event)">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+64 (0) 21 123 4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Interested In</label>
+                        <select required>
+                            <option value="">Select a service</option>
+                            <option value="facials">Professional Facials</option>
+                            <option value="waxing">Waxing & Hair Removal</option>
+                            <option value="brows">Brows & Lashes</option>
+                            <option value="dermaplaning">Dermaplaning</option>
+                            <option value="makeup">Makeup Services</option>
+                            <option value="training">Beauty Training</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea required placeholder="Tell us about your needs..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section style="background: var(--background);">
+        <div class="container">
+            <div class="trust-badges">
+                <div class="badge">
+                    <div class="badge-icon">🏆</div>
+                    <div class="badge-text">10+ Years Experience</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">👩‍🎓</div>
+                    <div class="badge-text">Fully Qualified Therapist</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">💯</div>
+                    <div class="badge-text">Professional Grade Products</div>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon">⭐</div>
+                    <div class="badge-text">Highly Rated & Trusted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>The Inspired Beauty</h4>
+                <p>Premium beauty therapy services in Christchurch, NZ. Professional treatments with 10+ years of expertise.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Facials</a></li>
+                    <li><a href="#services">Waxing</a></li>
+                    <li><a href="#services">Brows & Lashes</a></li>
+                    <li><a href="#services">Makeup</a></li>
+                    <li><a href="#services">Beauty Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Rabina</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Inspired Beauty. All rights reserved. | <a href="#" style="color: var(--primary);">Privacy Policy</a> | <a href="#" style="color: var(--primary);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Your Treatment</h2>
+                <button class="close-btn" onclick="closeBookingModal()">&times;</button>
+            </div>
+            <div class="success-message" id="successMessage">
+                ✓ Thank you! We've received your booking request. We'll confirm your appointment within 24 hours.
+            </div>
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" required placeholder="+64 (0) 21 123 4567">
+                </div>
+                <div class="form-group">
+                    <label>Select Service *</label>
+                    <select required>
+                        <option value="">Choose a service</option>
+                        <option value="facials">Professional Facials - $65</option>
+                        <option value="waxing">Waxing & Hair Removal - $35+</option>
+                        <option value="brows">Brows & Lashes - $45</option>
+                        <option value="dermaplaning">Dermaplaning - $55</option>
+                        <option value="makeup">Makeup Services - $60</option>
+                        <option value="training">Beauty Training - Custom Quote</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date *</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Time *</label>
+                    <select required>
+                        <option value="">Select time</option>
+                        <option value="09:00">9:00 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="15:00">3:00 PM</option>
+                        <option value="16:00">4:00 PM</option>
+                        <option value="17:00">5:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Additional Notes</label>
+                    <textarea placeholder="Any special requests or concerns..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 14px;">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Booking Modal Functions
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Submit Booking
+        function submitBooking(e) {
+            e.preventDefault();
+            const form = document.getElementById('bookingForm');
+            const successMsg = document.getElementById('successMessage');
+            
+            // Show success message
+            successMsg.classList.add('show');
+            form.style.display = 'none';
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                form.reset();
+                form.style.display = 'block';
+                successMsg.classList.remove('show');
+                closeBookingModal();
+            }, 3000);
+        }
+
+        // Send Message
+        function sendMessage(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+            e.target.reset();
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(button) {
+            const item = button.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
+
+        // Smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .testimonial-card, .pricing-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
